@@ -1,3 +1,4 @@
+import UserProfile from "./UserProfile";
 import "./styles/App.css";
 function App() {
   //The array of users to render in the assignment
@@ -43,6 +44,7 @@ function App() {
       imgUrl: "https://xsgames.co/randomusers/avatar.php?g=female",
     },
   ];
+
   return (
     <div className="App">
       <header >
@@ -50,7 +52,11 @@ function App() {
       </header>
       <div className="user-profile-wrapper">
         {/* Render the array of users using the UserProfile in this div */}
-
+        {
+          users.map((user, index) => {
+            return <UserProfile key={index} name={user.name} email={user.email} imgURL={user.imgUrl}/>
+          })
+        }
       </div>
     </div>
   );
